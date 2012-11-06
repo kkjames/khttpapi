@@ -1,0 +1,41 @@
+{
+    "name":"kschema",
+    "description":"一个轻量的json格式验证器",
+
+    "private":true,
+    "version":"0.0.1",
+    "homepage":"http://nodejs.keaku.com",
+    "keywords":[
+        "validator",
+        "validation",
+        "assert",
+        "params",
+        "schema",
+        "model",
+        "entities",
+        "arguments",
+        "input"
+    ],
+    "author":{
+        "name":"James",
+        "email":"james@shangbei.com"
+    },
+    "bugs":{
+        "mail":"",
+        "url":""
+    },
+    "repository":{
+    },
+    "contributors":[],
+    "engines":{
+        "node":"*"
+    },
+    "licenses":[
+        {
+            "type":"",
+            "url":""
+        }
+    ],
+    "dependencies":{
+    }
+}
