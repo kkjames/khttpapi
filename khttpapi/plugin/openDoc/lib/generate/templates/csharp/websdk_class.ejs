@@ -1,0 +1,87 @@
+
+using Keaku.TSina.Protocol.Models;
+using Keaku.TSina.Protocol.Arguments;
+using System.Web;
+using KCSharp;
+using System;
+using System.IO;
+using System.Reflection;
+using System.Text;
+using Keaku.Framework;
+using Keaku.Helpers;
+
+namespace KCSharp.SDK {
+
+    public class WebSDK {
+        public static WebSDK GetSDK(string p) {
+            return new WebSDK();
+        }
+
+        public static string kajaxContent;
+
+        public void AjaxProxy(HttpContext context) {
+            if (context.Request.QueryString.Count == 0) {
+                //如果没有任何输入则输出js脚本文件
+                if (kajaxContent == null) {
+                    Assembly asm = Assembly.GetExecutingAssembly();
+                    //文件所在的项目
+                    Stream st = asm.GetManifestResourceStream("KCSharp.SDK.kajax.js");
+                    var bufferSize = 4096;
+                    var sb = new StringBuilder();
+                    var bs = new byte[bufferSize];
+                    int l;
+                    do {
+                        l = st.Read(bs, 0, bufferSize);
+                        sb.Append(Encoding.UTF8.GetString(bs, 0, l));
+                    } while (l == bufferSize);
+                    kajaxContent = sb.ToString();
+                }
+                context.Response.ContentType = "text/javascript";
+                context.Response.Write(kajaxContent);
+            } else {
+                var path = context.Request.QueryString["path"];
+                //调用handler
+                var httpHelper = new HttpHelper();
+                try {
+                    //访问接口获取响应
+                    var WsResponse = httpHelper.HttpProxyTransfer(path, context);
+                    context.Response.ContentType = "text/json";
+                    httpHelper.WriteToClient(context, WsResponse);
+                } catch (Exception ex) {
+                    context.Response.Write(ex.ToString());
+                }
+            }
+        }
+    }
+    /// <summary>
+    /// 教程相关的服务都在这里
+    /// </summary>
+    public class Hmember : BaseService {
+
+        public Hmember() {
+            this.Handlers_UrlPrefix = "";
+        }
+
+        public MMember[] all(AMember_All args) {
+            return HttpInvoke<MMember[]>("/member/all", args);
+        }
+        public bool create(AMember_All args) {
+            return HttpInvoke<bool>("/member/create", args);
+        }
+        public MMember show(AMember_All args) {
+            return HttpInvoke<MMember>("/member/show", args);
+        }
+        public bool destory(AMember_All args) {
+            return HttpInvoke<bool>("/member/destory", args);
+        }
+        public bool update(AMember_All args) {
+            return HttpInvoke<bool>("/member/update", args);
+        }
+    }
+
+    public class SDKBag {
+        public Hmember member { get; set; }
+    }
+
+
+}

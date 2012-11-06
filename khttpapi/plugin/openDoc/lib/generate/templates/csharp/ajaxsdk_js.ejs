@@ -1,0 +1,28 @@
+if (typeof kk === 'undefined') kk = {};
+kk.invoke = function (path, inputs, callback) {
+    if (path) {
+        $.ajax({
+            type: 'post',
+            url: '/kajax.ashx?path=' + path,
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify(inputs),
+            success: function (d) {
+                //debugger;
+                var dd;
+                try {
+                    dd = JSON.stringify(d);
+                } catch (e) {
+                    callback(e, null);
+                }
+                if (dd && callback)
+                    callback(null, d);
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                if (callback)
+                    callback(errorThrown, null);
+            },
+            complete: function (x) {
+            }
+        });
+    }
+};
