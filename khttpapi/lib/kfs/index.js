@@ -1,7 +1,8 @@
 /**
  * Created with JetBrains WebStorm.
  * User: Administrator
- * Date: 12-10-12
- * Time: 下午2:30
+ * Date: 12-9-22
+ * Time: 下午9:49
  * To change this template use File | Settings | File Templates.
  */
+module.exports = require('./lib/kfs');

@@ -13,5 +13,4 @@ var error = module.exports = {
         '004':'APP权限不足',
         '005':'输入参数错误'
     }
-
 }

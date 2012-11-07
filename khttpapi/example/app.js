@@ -7,7 +7,7 @@ var express = require('express')
     , http = require('http')
     , path = require('path');
 
-var khttpapi = require('khttpapi');  // declare
+var khttpapi = require('../../khttpapi');  // declare
 
 var app = express();
 
