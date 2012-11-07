@@ -77,13 +77,13 @@ app.configure(function () {
 ```js
 {
     name:'MMember',
-    title:'会员信息',
+    title:'Member Info',
     type:'object',
     properties:{
-        id:{title:'id主键', type:'string'},
-        uid:{title:'用户ID', type:'string'},
-        username:{title:'昵称', type:'string'},
-        area:{title:'地区', type:'string[]'}
+        id:{type:'string'},
+        username:{title:'Name', type:'string'},
+        age:{title:'Name', type:'uint',min:17,max:40},
+        tags:{title:'Tag', type:'string[]'}
     }
 }
 ```
