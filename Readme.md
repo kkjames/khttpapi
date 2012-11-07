@@ -4,16 +4,16 @@ Sorry,this project is not finished! Coming soon!
 Easy and Fast to build a lightweight,Full-featured http-api server from mobile,ajax apps. Base on express web framework.
 
 #modify express app.js
-
+Lossless plugin.
 ```js
 
-var khttpapi = require('.');  // <-declare
+var khttpapi = require('.');  // <-Here! declare
 //express code
 app.configure(function () {
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'jade');
-    app.use(khttpapi.apiHandle());  // <-handle
+    app.use(khttpapi.apiHandle());  // <-Here! handle
     app.use(express.favicon());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
