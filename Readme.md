@@ -85,6 +85,13 @@ Receive A File
 ```
 #输入完整性检测
 ```js
+api.inputs({
+   properties:{
+       id:{title:'_ID', type:'string', required:true},
+       name:{title:'name', type:'string'},
+   }
+});
+//or
 {
     path:'/member/create',
     type:'create',
@@ -101,11 +108,16 @@ Receive A File
 ```
 #OAUTH
 ```js
+api.oauth(true);
+//or
 {
     oauth:true
 }
+```
 #API文档生成
 ```js
+api.openDoc(true);
+//or
 {
     open:{
         doc:true
@@ -114,6 +126,8 @@ Receive A File
 ```
 #SDK生成
 ```js
+api.openSDK(true);
+//or
 {
     open:{
         sdk:true
@@ -122,11 +136,13 @@ Receive A File
 ```
 
 #动态管理Handler
+```js
+api.manageHandler(true);
 {
     manageHandler:{
         sdk:true
     }
 }
-
+```
 ## License 
 MIT
