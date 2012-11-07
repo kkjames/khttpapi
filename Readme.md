@@ -23,55 +23,6 @@ app.configure(function () {
 });
 
 ```
-#define a handler
-
-```js
-{
-    title:'更新一个会员信息',
-    path:'/member/update',
-    roles:['gm'],
-    type:'update',
-    inputs:{
-        name:'AMemberUpdate',
-        title:'修改会员信息',
-        type:'object',
-        properties:{
-            id:{title:'_ID', type:'string', required:true},
-            uid:{title:'新浪用户ID', type:'string', required:true},
-            name:{title:'昵称', type:'string'},
-        }
-    },
-    returns:'MMember',
-    dataAccess:function (inputs, db, args, callback) {
-        console.log('创建实体');
-        args.createEntity('member', {
-            uid:inputs.uid,
-            username:inputs.username,
-            area:inputs.area,
-            pop_attr:inputs.pop_attr,
-            followed_count:inputs.followed_count,
-            gender:inputs.gender,
-            age:inputs.age,
-            attributes:inputs.attributes,
-            source:inputs.source,
-            profession:inputs.profession,
-            description:inputs.description,
-            short_link:inputs.short_link
-        }, function (err, entity) {
-            if (err) {
-                console.log(err);
-                callback(err);
-            } else {
-                console.log('更新实体');
-                db.collection('member').updateById(inputs.id, entity, {safe:true}, function (err) {
-                    console.log(err);
-                    callback(err);
-                });
-            }
-        });
-    }
-}
-```
 #define a model
 
 ```js
@@ -87,5 +38,42 @@ app.configure(function () {
     }
 }
 ```
+
+#define a handler
+
+```js
+{
+    title:'Update a member',
+    path:'/member/update',
+    roles:['gm'],
+    type:'update',
+    inputs:{
+        name:'AMemberUpdate',
+        title:'Update a member',
+        type:'object',
+        properties:{
+            id:{title:'_ID', type:'string', required:true},
+            name:{title:'name', type:'string'},
+        }
+    },
+    returns:'MMember',
+    dataAccess:function (inputs, db, args, callback) {
+        args.createEntity('member', {
+            username:inputs.name,
+        }, function (err, entity) {
+            if (err) {
+                console.log(err);
+                callback(err);
+            } else {
+                db.collection('member').updateById(inputs.id, entity, {safe:true}, function (err) {
+                    console.log(err);
+                    callback(err);
+                });
+            }
+        });
+    }
+}
+```
+
 ## License 
 MIT
