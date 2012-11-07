@@ -1,0 +1,35 @@
+{
+    "name":"khttpapi",
+    "description":"Easy to build a http api server from mobile,ajax apps.",
+    "version":"0.0.1",
+    "author":{
+        "name":"James Shen",
+        "email":"james@shangbei.com"
+    },
+    "scripts":{
+        "start":""
+    },
+    "dependencies":{
+        "mongodb":">=1.1.4",
+        "mongoskin":"*",
+        "mongoose":"*"
+    },
+    "main":"index",
+    "_id":"khttpapi@0.0.1",
+    "repository":{
+        "type":"git",
+        "url":"git://github.com/visionmedia/express"
+    }, "keywords":[
+    "khttpapi",
+    "express",
+    "framework",
+    "http",
+    "web",
+    "rest",
+    "restful",
+    "router",
+    "app",
+    "api" ,
+    "open"
+]
+}
