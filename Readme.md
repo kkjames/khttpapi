@@ -1,5 +1,7 @@
-#Sorry,this project is not finished! Coming soon!
- Easy and Fast to build a lightweight,Full-featured http-api server from mobile,ajax apps. Base on express web framework.
+#Not finished!
+
+Sorry,this project is not finished! Coming soon!
+Easy and Fast to build a lightweight,Full-featured http-api server from mobile,ajax apps. Base on express web framework.
 
 #modify express app.js
 
