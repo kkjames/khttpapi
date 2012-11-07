@@ -1,5 +1,4 @@
-
-![khttpapi logo](http://f.cl.ly/items/0V2S1n0K1i3y1c122g04/Screen%20Shot%202012-04-11%20at%209.59.42%20AM.png)
+Sorry,Not Finished! Coming soon!
  Easy and Fast to build a lightweight,Full-featured http-api server from mobile,ajax apps. Base on express web framework.
 
 #modify express app.js
