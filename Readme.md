@@ -1,7 +1,8 @@
-Sorry,Not Finished! Coming soon!
+#Sorry,this project is not finished! Coming soon!
  Easy and Fast to build a lightweight,Full-featured http-api server from mobile,ajax apps. Base on express web framework.
 
 #modify express app.js
+
 ```js
 
 var khttpapi = require('.');  // <-declare
@@ -21,6 +22,7 @@ app.configure(function () {
 
 ```
 #define a handler
+
 ```js
 {
     title:'更新一个会员信息',
@@ -68,7 +70,8 @@ app.configure(function () {
     }
 }
 ```
- #define a model
+#define a model
+
 ```js
 {
     name:'MMember',
